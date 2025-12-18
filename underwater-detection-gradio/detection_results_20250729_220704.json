@@ -1,0 +1,285 @@
+{
+  "export_timestamp": "2025-07-29T22:07:04.710920",
+  "total_detections": 2,
+  "detection_history": [
+    {
+      "timestamp": "2025-07-29 22:05:20",
+      "model": "YOLOv8n",
+      "detections": 0,
+      "inference_time": 2.9617691040039062,
+      "objects": []
+    },
+    {
+      "timestamp": "2025-07-29 22:05:44",
+      "model": "YOLOv8n",
+      "detections": 24,
+      "inference_time": 0.2088463306427002,
+      "objects": [
+        {
+          "class": "fish",
+          "confidence": 0.7165197730064392,
+          "bbox": [
+            807,
+            381,
+            854,
+            436
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.6929103136062622,
+          "bbox": [
+            718,
+            156,
+            743,
+            173
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.6896141171455383,
+          "bbox": [
+            372,
+            549,
+            404,
+            570
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.66541987657547,
+          "bbox": [
+            227,
+            347,
+            288,
+            380
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.659656286239624,
+          "bbox": [
+            831,
+            234,
+            876,
+            263
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.6528066992759705,
+          "bbox": [
+            436,
+            268,
+            501,
+            298
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "shark",
+          "confidence": 0.6291869282722473,
+          "bbox": [
+            280,
+            147,
+            361,
+            271
+          ],
+          "color": "#FECA57"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.6023290753364563,
+          "bbox": [
+            977,
+            233,
+            999,
+            256
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.6003536581993103,
+          "bbox": [
+            241,
+            379,
+            297,
+            405
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5853113532066345,
+          "bbox": [
+            901,
+            207,
+            948,
+            232
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5802775025367737,
+          "bbox": [
+            886,
+            339,
+            918,
+            359
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5610805749893188,
+          "bbox": [
+            369,
+            529,
+            401,
+            546
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5470680594444275,
+          "bbox": [
+            903,
+            541,
+            944,
+            563
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5399317741394043,
+          "bbox": [
+            612,
+            447,
+            650,
+            465
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5366618633270264,
+          "bbox": [
+            420,
+            238,
+            491,
+            278
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5357762575149536,
+          "bbox": [
+            294,
+            266,
+            363,
+            314
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.5069117546081543,
+          "bbox": [
+            622,
+            495,
+            663,
+            518
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.4542959928512573,
+          "bbox": [
+            744,
+            119,
+            764,
+            130
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.37132933735847473,
+          "bbox": [
+            306,
+            217,
+            366,
+            292
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.3655146062374115,
+          "bbox": [
+            99,
+            371,
+            121,
+            393
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.35465261340141296,
+          "bbox": [
+            962,
+            392,
+            983,
+            424
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.31212782859802246,
+          "bbox": [
+            862,
+            169,
+            886,
+            185
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.2949611246585846,
+          "bbox": [
+            974,
+            130,
+            991,
+            153
+          ],
+          "color": "#FF6B6B"
+        },
+        {
+          "class": "fish",
+          "confidence": 0.28959921002388,
+          "bbox": [
+            327,
+            413,
+            346,
+            424
+          ],
+          "color": "#FF6B6B"
+        }
+      ]
+    }
+  ]
+}

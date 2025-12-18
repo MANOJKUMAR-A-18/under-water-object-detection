@@ -1,0 +1,120 @@
+{
+  "app_config": {
+    "title": "Professional Underwater Object Detection System",
+    "version": "2.0.0",
+    "author": "AI Detection Lab",
+    "description": "Advanced AI-powered underwater object detection with professional analytics",
+    "max_file_size": "50MB",
+    "supported_formats": [".jpg", ".jpeg", ".png", ".bmp", ".tiff"],
+    "max_concurrent_users": 10
+  },
+  
+  "detection_config": {
+    "default_confidence_threshold": 0.25,
+    "default_iou_threshold": 0.45,
+    "max_detections_per_image": 100,
+    "min_object_size": 10,
+    "enable_tracking": true,
+    "save_detection_history": true,
+    "max_history_records": 1000
+  },
+  
+  "model_config": {
+    "default_model": "YOLOv8n",
+    "model_paths": {
+      "YOLOv8n": "../yolov8n/runs/detect_train/weights/best.pt",
+      "YOLOv8s": "../yolov8s/runs/detect_train/weights/best.pt"
+    },
+    "fallback_models": {
+      "YOLOv8n": "yolov8n.pt",
+      "YOLOv8s": "yolov8s.pt"
+    },
+    "model_info": {
+      "YOLOv8n": {
+        "description": "Nano model - fastest inference",
+        "parameters": "3.2M",
+        "recommended_use": "Real-time applications"
+      },
+      "YOLOv8s": {
+        "description": "Small model - balanced speed/accuracy", 
+        "parameters": "11.2M",
+        "recommended_use": "Production deployments"
+      }
+    }
+  },
+  
+  "ui_config": {
+    "theme": "soft",
+    "primary_color": "blue",
+    "enable_dark_mode": true,
+    "show_advanced_controls": true,
+    "enable_batch_processing": false,
+    "show_performance_metrics": true,
+    "enable_export_features": true
+  },
+  
+  "underwater_classes": {
+    "fish": {
+      "emoji": "🐠",
+      "color": "#FF6B6B",
+      "description": "Various fish species"
+    },
+    "jellyfish": {
+      "emoji": "🪼", 
+      "color": "#4ECDC4",
+      "description": "Jellyfish and related cnidarians"
+    },
+    "penguin": {
+      "emoji": "🐧",
+      "color": "#45B7D1", 
+      "description": "Penguin species"
+    },
+    "puffin": {
+      "emoji": "🦅",
+      "color": "#96CEB4",
+      "description": "Puffin seabirds"
+    },
+    "shark": {
+      "emoji": "🦈",
+      "color": "#FECA57",
+      "description": "Shark species"
+    },
+    "starfish": {
+      "emoji": "⭐",
+      "color": "#FF9FF3", 
+      "description": "Sea stars and echinoderms"
+    },
+    "stingray": {
+      "emoji": "🐙",
+      "color": "#54A0FF",
+      "description": "Stingrays and rays"
+    }
+  },
+  
+  "performance_config": {
+    "enable_gpu_acceleration": true,
+    "batch_size": 1,
+    "num_workers": 2,
+    "cache_predictions": true,
+    "optimize_for_mobile": false,
+    "enable_tensorrt": false
+  },
+  
+  "export_config": {
+    "formats": ["json", "csv", "html"],
+    "include_images": false,
+    "include_confidence_scores": true,
+    "include_bounding_boxes": true,
+    "include_timestamps": true,
+    "compression": "gzip"
+  },
+  
+  "logging_config": {
+    "level": "INFO",
+    "log_file": "detection_system.log",
+    "max_log_size": "10MB",
+    "backup_count": 5,
+    "log_detections": true,
+    "log_performance": true
+  }
+}

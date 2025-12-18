@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: underwater-detection-gradio
+    env: python
+    # This file sits at the repo root; service runs from here
+    buildCommand: pip install -r requirements_professional.txt
+    startCommand: python app_simple_professional.py
+    plan: starter
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: SERVER_NAME
+        value: 0.0.0.0
+      - key: GRADIO_SHARE
+        value: false

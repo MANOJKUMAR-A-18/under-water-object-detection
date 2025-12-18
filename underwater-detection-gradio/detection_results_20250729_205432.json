@@ -1,0 +1,91 @@
+{
+  "export_timestamp": "2025-07-29T20:54:32.076661",
+  "total_detections": 1,
+  "detection_history": [
+    {
+      "timestamp": "2025-07-29 20:54:20",
+      "model": "YOLOv8n",
+      "detections": 7,
+      "inference_time": 2.623538017272949,
+      "objects": [
+        {
+          "class": "starfish",
+          "confidence": 0.8600794076919556,
+          "bbox": [
+            57,
+            735,
+            261,
+            876
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.7342729568481445,
+          "bbox": [
+            274,
+            607,
+            354,
+            686
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.7220325469970703,
+          "bbox": [
+            285,
+            0,
+            389,
+            172
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.5634183883666992,
+          "bbox": [
+            82,
+            496,
+            125,
+            535
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.4242517352104187,
+          "bbox": [
+            32,
+            568,
+            100,
+            605
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.3123595118522644,
+          "bbox": [
+            382,
+            620,
+            464,
+            682
+          ],
+          "color": "#FF9FF3"
+        },
+        {
+          "class": "starfish",
+          "confidence": 0.26429685950279236,
+          "bbox": [
+            449,
+            919,
+            494,
+            979
+          ],
+          "color": "#FF9FF3"
+        }
+      ]
+    }
+  ]
+}
