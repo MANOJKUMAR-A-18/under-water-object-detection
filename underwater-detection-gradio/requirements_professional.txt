@@ -6,7 +6,7 @@ torchvision==0.15.2+cpu
 # Computer Vision & Image Processing
 opencv-pythonPillow
 numpy
-
+# CORE DOATA
 # Data Analysis & Visualization
 pandasplotly
 matplotlibseaborn
