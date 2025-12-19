@@ -541,6 +541,12 @@ def build_app():
     """Build the underwater detection application"""
     
     with gr.Blocks(
+        theme=gr.themes.Soft(
+            primary_hue="blue",
+            secondary_hue="slate",
+            neutral_hue="gray"
+        ),
+        css=EXTRA_CSS,
         title="🐬 Underwater Object Detection System"
     ) as demo:
         
@@ -840,16 +846,22 @@ if __name__ == "__main__":
     app = build_app()
     # Read host/port/share from environment for deployment
     import os as _os
-    # Bind to 0.0.0.0 by default for Render
-    _server_name = _os.getenv("SERVER_NAME", "0.0.0.0")
+    # Choose bind address: Render needs 0.0.0.0, local prefers 127.0.0.1
     _port = int(_os.getenv("PORT", "7860"))
+    _is_render = bool(_os.getenv("RENDER") or _os.getenv("RENDER_SERVICE_ID") or (_os.getenv("PORT") and _os.getenv("PORT") != "7860"))
+    if _os.getenv("SERVER_NAME"):
+        _server_name = _os.getenv("SERVER_NAME")
+    else:
+        _server_name = "0.0.0.0" if _is_render else "127.0.0.1"
     _share = _os.getenv("GRADIO_SHARE", "false").lower() == "true"
-    app.launch(
+    import inspect as _inspect
+    _sig = _inspect.signature(app.launch)
+    _kwargs = dict(
         server_name=_server_name,
         server_port=_port,
         share=_share,
-        theme=gr.themes.Soft(primary_hue="blue", secondary_hue="slate", neutral_hue="gray"),
-        css=EXTRA_CSS,
         show_error=True,
-        quiet=False
+        quiet=False,
     )
+    # Theme and CSS are already applied in Blocks; avoid passing in launch
+    app.launch(**_kwargs)
