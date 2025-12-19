@@ -12,8 +12,8 @@ import plotly.graph_objects as go
 
 # Model paths
 MODEL_PATHS = {
-    "YOLOv8n": "../yolov8n/runs/detect_train/weights/best.pt",
-    "YOLOv8s": "../yolov8s/runs/detect_train/weights/best.pt"
+    "YOLOv8n": "./yolov8n/best.pt",
+    "YOLOv8s": "./yolov8s/best.pt"
 }
 
 # Load models
@@ -843,7 +843,8 @@ if __name__ == "__main__":
     app = build_app()
     # Read host/port/share from environment for deployment
     import os as _os
-    _server_name = _os.getenv("SERVER_NAME", "0.0.0.0")
+    # Default to localhost to avoid invalid 0.0.0.0 URL on Windows
+    _server_name = _os.getenv("SERVER_NAME", "127.0.0.1")
     _port = int(_os.getenv("PORT", "7860"))
     _share = _os.getenv("GRADIO_SHARE", "false").lower() == "true"
     app.launch(
