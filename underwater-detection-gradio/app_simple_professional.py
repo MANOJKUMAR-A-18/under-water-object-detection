@@ -23,9 +23,9 @@ def _resolve_weight_path(val: str) -> str:
         return os.path.join(BASE_DIR, val)
     return val
 
-# Model paths (env overrides first)
-_w_n = os.getenv("YOLOV8N_WEIGHTS", os.path.join("yolov8n", "best.pt"))
-_w_s = os.getenv("YOLOV8S_WEIGHTS", os.path.join("yolov8s", "best.pt"))
+# Model paths (env overrides first). Defaults to files beside this script.
+_w_n = os.getenv("YOLOV8N_WEIGHTS", "best8n.pt")
+_w_s = os.getenv("YOLOV8S_WEIGHTS", "best8s.pt")
 MODEL_PATHS = {
     "YOLOv8n": _resolve_weight_path(_w_n),
     "YOLOv8s": _resolve_weight_path(_w_s),
