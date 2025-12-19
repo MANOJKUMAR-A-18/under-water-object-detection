@@ -178,10 +178,10 @@ def create_detection_chart(detection_data):
 def detect_objects(image, model_choice, confidence_threshold=0.25, iou_threshold=0.45):
     """Object detection with enhanced features"""
     if image is None:
-        return None, "Please upload an image", None, ""
+        return None, "Please upload an image", ""
     
     if model_choice not in models:
-        return None, f"Model {model_choice} not available", None, ""
+        return None, f"Model {model_choice} not available", ""
     
     # Start timing
     start_time = time.time()
@@ -530,16 +530,17 @@ footer {
 }
 """
 
+# Extra CSS applied at launch (global so __main__ can access it)
+EXTRA_CSS = (
+    AQUATIC_CSS
+    + "\n.full-cover-image img, .full-cover-image canvas { object-fit: contain !important; width: 100% !important; height: 100% !important; background: #101c2c !important; }\n"
+    + ".full-cover-image { padding: 0 !important; margin: 0 !important; background: #101c2c !important; }\n"
+)
+
 def build_app():
     """Build the underwater detection application"""
     
     with gr.Blocks(
-        theme=gr.themes.Soft(
-            primary_hue="blue",
-            secondary_hue="slate",
-            neutral_hue="gray"
-        ),
-        css=AQUATIC_CSS + "\n.full-cover-image img, .full-cover-image canvas { object-fit: contain !important; width: 100% !important; height: 100% !important; background: #101c2c !important; }\n.full-cover-image { padding: 0 !important; margin: 0 !important; background: #101c2c !important; }\n" ,
         title="🐬 Underwater Object Detection System"
     ) as demo:
         
@@ -781,8 +782,6 @@ def build_app():
                             height=700,
                             show_label=False,
                             container=False,
-                            show_download_button=False,
-                            show_share_button=False,
                             elem_classes=["full-cover-image"]
                         )
                         # Controls below image
@@ -822,8 +821,6 @@ def build_app():
                             height=700,
                             show_label=False,
                             container=False,
-                            show_download_button=False,
-                            show_share_button=False,
                             elem_classes=["full-cover-image"]
                         )
                         # Detected objects below result image
@@ -843,14 +840,16 @@ if __name__ == "__main__":
     app = build_app()
     # Read host/port/share from environment for deployment
     import os as _os
-    # Default to localhost to avoid invalid 0.0.0.0 URL on Windows
-    _server_name = _os.getenv("SERVER_NAME", "127.0.0.1")
+    # Bind to 0.0.0.0 by default for Render
+    _server_name = _os.getenv("SERVER_NAME", "0.0.0.0")
     _port = int(_os.getenv("PORT", "7860"))
     _share = _os.getenv("GRADIO_SHARE", "false").lower() == "true"
     app.launch(
         server_name=_server_name,
         server_port=_port,
         share=_share,
+        theme=gr.themes.Soft(primary_hue="blue", secondary_hue="slate", neutral_hue="gray"),
+        css=EXTRA_CSS,
         show_error=True,
         quiet=False
     )
