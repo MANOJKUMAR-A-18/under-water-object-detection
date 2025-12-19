@@ -10,10 +10,25 @@ import pandas as pd
 from datetime import datetime
 import plotly.graph_objects as go
 
-# Model paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def _resolve_weight_path(val: str) -> str:
+    """Resolve a weight path: support http(s) URLs, absolute paths, or repo-relative paths."""
+    if not val:
+        return val
+    if val.startswith("http://") or val.startswith("https://"):
+        return val
+    # If not absolute, make it relative to this file
+    if not os.path.isabs(val):
+        return os.path.join(BASE_DIR, val)
+    return val
+
+# Model paths (env overrides first)
+_w_n = os.getenv("YOLOV8N_WEIGHTS", os.path.join("yolov8n", "best.pt"))
+_w_s = os.getenv("YOLOV8S_WEIGHTS", os.path.join("yolov8s", "best.pt"))
 MODEL_PATHS = {
-    "YOLOv8n": "./yolov8n/best.pt",
-    "YOLOv8s": "./yolov8s/best.pt"
+    "YOLOv8n": _resolve_weight_path(_w_n),
+    "YOLOv8s": _resolve_weight_path(_w_s),
 }
 
 # Load models
@@ -21,15 +36,16 @@ models = {}
 available_models = []
 
 for model_name, model_path in MODEL_PATHS.items():
-    if os.path.exists(model_path):
-        try:
+    try:
+        _is_remote = isinstance(model_path, str) and (model_path.startswith("http://") or model_path.startswith("https://"))
+        if _is_remote or os.path.exists(model_path):
             models[model_name] = YOLO(model_path)
             available_models.append(model_name)
             print(f"✅ Loaded {model_name} model: {model_path}")
-        except Exception as e:
-            print(f"❌ Failed to load {model_name} model: {e}")
-    else:
-        print(f"⚠️ {model_name} model not found: {model_path}")
+        else:
+            print(f"⚠️ {model_name} model not found at: {model_path}")
+    except Exception as e:
+        print(f"❌ Failed to load {model_name} model from {model_path}: {e}")
 
 # Fallback to default model if no custom models found
 if not available_models:
