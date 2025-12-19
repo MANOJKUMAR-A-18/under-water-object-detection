@@ -1,10 +1,9 @@
-# Minimal dependencies for the Gradio YOLO app
-gradio
-ultralytics
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 torch
 torchvision
-opencv-python
-Pillow
+ultralytics
+gradio
+opencv-python-headless
 numpy
-pandas
-plotly
+pillow
